@@ -29,9 +29,10 @@ class Event
   end
 
   def all_items
-    @food_trucks.each_with_object([]) do |food_truck, item_list|
+    items = @food_trucks.each_with_object([]) do |food_truck, item_list|
       item_list << food_truck.items_available
-    end.flatten.uniq
+    end.flatten
+    items.uniq
   end
 
   def sorted_item_list
