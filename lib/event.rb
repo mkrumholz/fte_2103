@@ -49,7 +49,7 @@ class Event
 
   def overstocked_items
     all_items.find_all do |item|
-      food_trucks_that_sell(item) > 1 && total_quantity(item) > 50
+      food_trucks_that_sell(item).length > 1 && total_quantity(item) > 50
     end
   end
 end

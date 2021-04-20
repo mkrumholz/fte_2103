@@ -213,7 +213,8 @@ describe Event do
       event.add_food_truck(food_truck2)
       event.add_food_truck(food_truck3)
 
-      expect(event.overstocked_items).to eq [item_1]
+      expected = [item1]
+      expect(event.overstocked_items).to eq expected
     end
   end
 end
