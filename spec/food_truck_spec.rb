@@ -18,7 +18,7 @@ describe FoodTruck do
     it 'has no inventory to start' do
       food_truck = FoodTruck.new("Rocky Mountain Pies")
 
-      expect(food_truck.inventory).to eq {}
+      expect(food_truck.inventory).to eq Hash.new
     end
   end
 end
