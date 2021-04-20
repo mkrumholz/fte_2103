@@ -151,7 +151,6 @@ describe Event do
 
   describe '#total_inventory' do
     it 'returns a hash of all items sold at the event' do
-      #Specifically, it should return a hash with items as keys and hash as values - this sub-hash should have two key/value pairs: quantity pointing to total inventory for that item and food_trucks pointing to an array of the food trucks that sell that item.
       event = Event.new("South Pearl Street Farmers Market")
       food_truck1 = FoodTruck.new("Rocky Mountain Pies")
       food_truck2 = FoodTruck.new("Ba-Nom-a-Nom")
@@ -194,8 +193,7 @@ describe Event do
   end
 
   describe '#overstocked_items' do
-    xit 'returns a list of overstocked items' do
-      #An item is overstocked if it is sold by more than 1 food truck AND the total quantity is greater than 50.
+    it 'returns a list of overstocked items' do
       event = Event.new("South Pearl Street Farmers Market")
       food_truck1 = FoodTruck.new("Rocky Mountain Pies")
       food_truck2 = FoodTruck.new("Ba-Nom-a-Nom")
@@ -215,7 +213,7 @@ describe Event do
       event.add_food_truck(food_truck2)
       event.add_food_truck(food_truck3)
 
-
+      expect(event.overstocked_items).to eq [item_1]
     end
   end
 end
