@@ -20,4 +20,8 @@ class FoodTruck
       item.price * count
     end
   end
+
+  def items_available
+    @inventory.keys
+  end
 end

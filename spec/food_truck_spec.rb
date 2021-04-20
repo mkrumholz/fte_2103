@@ -59,4 +59,20 @@ describe FoodTruck do
       expect(food_truck.potential_revenue).to eq 148.75
     end
   end
+
+  describe '#items_available' do
+    it 'returns all items available for FoodTruck' do
+      food_truck = FoodTruck.new("Rocky Mountain Pies")
+      item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
+      item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
+      item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
+      item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
+
+      food_truck.stock(item1, 35)
+      food_truck.stock(item2, 7)
+
+      expected = [item1, item2]
+      expect(food_truck.items_available).to eq expected
+    end
+  end
 end
