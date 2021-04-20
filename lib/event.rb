@@ -39,11 +39,10 @@ class Event
   end
 
   def total_inventory
-    all_items.reduce({}) do |inventory_hash, item|
+    all_items.each_with_object({}) do |item, inventory_hash|
       inventory_hash[item] = {quantity: 0, food_trucks: []}
       inventory_hash[item][:quantity] = total_quantity(item)
       inventory_hash[item][:food_trucks] = food_trucks_that_sell(item)
-      inventory_hash
     end
   end
 
