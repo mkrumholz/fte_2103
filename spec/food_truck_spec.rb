@@ -30,13 +30,6 @@ describe FoodTruck do
 
       expect(food_truck.check_stock(item1)).to eq 0
     end
-
-    # it 'returns num of specified item in inventory' do
-    #   food_truck = FoodTruck.new("Rocky Mountain Pies")
-    #   item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
-    #
-    #   expect(food_truck.check_stock(item1)).to eq 0
-    # end
   end
 
   describe '#stock' do
@@ -47,6 +40,10 @@ describe FoodTruck do
       food_truck.stock(item1, 30)
 
       expect(food_truck.check_stock(item1)).to eq 30
+
+      food_truck.stock(item1, 25)
+
+      expect(food_truck.check_stock(item1)).to eq 55
     end
   end
 end
