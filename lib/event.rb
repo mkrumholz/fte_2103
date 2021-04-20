@@ -39,18 +39,17 @@ class Event
   end
 
   def total_inventory
-    # @food_trucks.reduce(Hash.new({quantity: 0, food_trucks: []})) do |inventory_hash, food_truck|
-    #   # food_truck.inventory.each_pair do |item, count|
-    #   #   inventory_hash[item][:quantity] = total_quantity(item)
-    #   #   inventory_hash[item][:food_trucks] = food_trucks_that_sell(item)
-    #   # end
-    #
-    # end
     all_items.reduce(Hash.new) do |inventory_hash, item|
       inventory_hash[item] = {quantity: 0, food_trucks: []}
       inventory_hash[item][:quantity] = total_quantity(item)
       inventory_hash[item][:food_trucks] = food_trucks_that_sell(item)
       inventory_hash
+    end
+  end
+
+  def overstocked_items
+    all_items.find_all do |item|
+      food_trucks_that_sell(item) > 1 && total_quantity(item) > 50
     end
   end
 end
