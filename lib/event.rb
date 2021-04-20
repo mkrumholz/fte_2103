@@ -22,8 +22,7 @@ class Event
   end
 
   def total_quantity(item)
-    truck_list = food_trucks_that_sell(item)
-    truck_list.sum do |truck|
+    food_trucks_that_sell(item).sum do |truck|
       truck.inventory[item]
     end
   end
